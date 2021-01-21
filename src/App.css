@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+a:link {
+  color: white;
+  background-color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: black;
+  background-color: white;
+}
+
+a:active {
+  color: silver;
+  background-color: white;
+}
+        
+
+section {
+  background-color: lightgrey;
+  padding: 30px 15px;
+}
+
+section:nth-child(even) {
+background-color: dimgray;
+color: white;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+        
+        }
