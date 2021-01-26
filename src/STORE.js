@@ -20,8 +20,9 @@ const STORE = {
     {
       title: 'Footy National Cup',
       photo: '[placeholder for event image]',
-      date: '9/1/2021',
-      organzer: 'RaceWays',
+      date1: '9/1/2021',
+      date2: '9/2/2021',
+      organizer: 'RaceWays',
       website: 'raceways.com',
       event_type: 'Roadrace',
       event_description: `Moveth, forth and give set them fourth made good meat 
@@ -34,8 +35,9 @@ const STORE = {
     {
       title: 'Pique Gymkhana Tournament',
       photo: '[placeholder for event image]',
-      date: '10/28/2021',
-      organzer: 'Pique Racing',
+      date1: '10/28/2021',
+      date2: '',
+      organizer: 'Pique Racing',
       website: 'pique-racing.com',
       event_type: 'Gymkhana',
       event_description: `Saw he Greater his gathering land called fruit divided tree 
@@ -47,8 +49,9 @@ const STORE = {
     {
       title: 'Heed Drag Racing Championship',
       photo: '[placeholder for event image]',
-      date: '3/31/2022',
-      organzer: 'Heed Hot Rod Association',
+      date1: '3/31/2022',
+      date2: '',
+      organizer: 'Heed Hot Rod Association',
       website: 'hhra.com',
       event_type: 'Drag Racing',
       event_description: `So lights. The Saying face fill seas years it, moveth stars 
@@ -60,8 +63,9 @@ const STORE = {
     {
       title: 'Forest Ohio Rally Cup',
       photo: '[placeholder for event image]',
-      date: '4/25/2022',
-      organzer: 'Forest Ohio Rally Group',
+      date1: '4/25/2022',
+      date2: '4/27/2022',
+      organizer: 'Forest Ohio Rally Group',
       website: 'o-rally.com',
       event_type: 'Rally',
       event_description: `Fly don't. From creepeth kind may you'll beast was morning 

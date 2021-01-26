@@ -11,8 +11,11 @@ function Nav() {
         <Link to="/event-form" >
           <li>Event Form</li>
         </Link>
+        <Link to="/events-search" >
+          <li>Search Events</li>
+        </Link>
         <Link to='/feed'>
-          <li>Feed</li>
+          <li>Events</li>
         </Link>
         <Link to="users">
           <li>View Users</li>

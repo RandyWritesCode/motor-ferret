@@ -1,30 +1,29 @@
 import React from 'react'
-import STORE from '../STORE'
 
-function Users() {
 
-  let user = STORE.users.map((user, idx) => {
-    console.log(user)
+function Users(props) {
+  console.log(props)
+  let user = props.users.map((user, idx) => {
     return (<section key={idx}>
       <h4>
         {user.username}
       </h4>
+      <p>{user.profile_picture}</p>
       <p>
         Member Since:
         {user.start_date}
       </p>
+
       <p>
-        Flagged:
-{user.flagged}      </p>
+        Flagged: {user.flagged}</p>
     </section>
     )
-  })
 
+  })
   return (
     <>
-      {user}
+      { user}
     </>
   )
 }
-
 export default Users

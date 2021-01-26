@@ -11,70 +11,82 @@ function EventForm() {
         </legend>
 
         <div>
-          <label for="title">Title: </label>
+          <label htmlFor="title">Title: </label>
           <input type="text" id="title" required />
         </div>
 
         <div>
-          <label for="organizer">Organizer: </label>
+          <label htmlFor="date1">Start Date: </label>
+          <input type="date" id="date1" required />
+        </div>
+
+        <div>
+          <label htmlFor="date2">End Date: </label>
+          <input type="date" id="date2" />
+        </div>
+
+        <div>
+          <label htmlFor="organizer">Organizer: </label>
           <input type="text" id="organizer" required />
         </div>
 
         <div>
 
-          <label for="website">Website: </label>
+          <label htmlFor="website">Website: </label>
           <input type="text" id="website" />
         </div>
         <div>
-          <label for="event-type">Event Type: </label>
-          <select name="event-type" id="event-type">
+          <label htmlFor="event_type">Event Type: </label>
+          <select name="event-type" id="event_type">
             <option value='rallying'>Rallying</option>
-            <option value='time-attack'>Time Attack</option>
-            <option value='drag-racing'>Drag Racing</option>
-            <option value='road-racing'>Road racing</option>
+            <option value='time_attack'>Time Attack</option>
+            <option value='drag_racing'>Drag Racing</option>
+            <option value='road_racing'>Road racing</option>
           </select>
         </div>
         <div>
-          <label>Event Description</label>
-          <textarea name="" id="" cols="30" rows="10">Write about your event here...</textarea>
+          <label htmlFor="photo">
+            Photo URL
+          </label>
+          <input type='text' id="photo" />
+        </div>
+        <div>
+          <label htmlFor="event_description">Event Description</label>
+          <textarea name="event_description" id="event_description" cols="30" rows="10">Write about your event here...</textarea>
         </div>
       </fieldset>
+
       <fieldset>
         <legend>Event Location</legend>
-
-
-
         <div>
-          <label for="address">Street Address:</label>
+          <label htmlFor="address">Street Address:</label>
           <input type="text" id="address" required />
         </div>
 
         <div>
-          <label for="address2">Street Address Line 2:</label>
+          <label htmlFor="address2">Street Address Line 2:</label>
           <input type="text" id="address2" />
         </div>
 
         <div>
-
-          <label for="city">City</label>
+          <label htmlFor="city">City</label>
           <input type="text" id="city" required />
         </div>
 
         <div>
-          <label for="state">State:</label>
+          <label htmlFor="state">State:</label>
           <input type="text" id="state" required />
         </div>
 
         <div>
-
-          <label for="zip">Zip Code:</label>
+          <label htmlFor="zip">Zip Code:</label>
           <input type="text" id="zip" required />
         </div>
       </fieldset>
 
 
-      <button>Submit</button>
-      <button>Clear</button>
+      <button type="submit">Submit</button>
+      <button type="reset">Clear</button>
     </form>
 
   </section>

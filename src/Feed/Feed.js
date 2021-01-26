@@ -1,16 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import STORE from '../STORE'
-function Feed() {
 
-  let event = STORE.events.map((event, idx) => {
+
+function Feed(props) {
+
+  let event = props.events.map((event, idx) => {
+    let secondDate = (event.date2 ? `to ${event.date2}` : '')
     return (
       <section>
-        <Link>
+        <a href={event.website}>
           <h4>{event.title}</h4>
-        </Link>
+        </a>
         <p>{event.photo}</p>
-        <p>{event.date}</p>
+        <p>{event.date1}</p>
+        <p>{secondDate}</p>
         <p>Event Type: {event.event_type}</p>
         <p>Description: {event.event_description}</p>
       </section>
