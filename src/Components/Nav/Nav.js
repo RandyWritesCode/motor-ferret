@@ -9,12 +9,12 @@ function Nav() {
       <ul>
         {/* <li>Sign Up</li> */}
         <Link to="/event-form" >
-          <li>Event Form</li>
+          <li>Add Event</li>
         </Link>
         <Link to="/events-search" >
           <li>Search Events</li>
         </Link>
-        <Link to='/feed'>
+        <Link to='/events'>
           <li>Events</li>
         </Link>
         <Link to="users">
@@ -22,6 +22,9 @@ function Nav() {
         </Link>
         <Link to="/login">
           <li>Login</li>
+        </Link>
+        <Link to="/sign-up">
+          <li>SignUp</li>
         </Link>
         <Link to='/'>
 

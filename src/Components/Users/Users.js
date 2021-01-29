@@ -2,7 +2,6 @@ import React from 'react'
 
 
 function Users(props) {
-  console.log(props)
   let user = props.users.map((user, idx) => {
     return (<section key={idx}>
       <h4>
@@ -22,6 +21,10 @@ function Users(props) {
   })
   return (
     <>
+      <section>
+        <h3>View Users:</h3>
+        <p>Admins Only!</p>
+      </section>
       { user}
     </>
   )
