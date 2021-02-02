@@ -1,37 +1,8 @@
 import React from 'react'
-import TokenService from '../../Services/token-services'
-import config from '../../config'
+
 
 class Users extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
-  componentDidMount() {
-    let userUrl = `${config.API_ENDPOINT}/users`;
-    let getAllUsers = {
-      method: 'GET',
-      headers: {
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
-      }
-    }
-
-    fetch(userUrl, getAllUsers)
-      .then(res => {
-        if (!res.ok) {
-          return res.json.then(error => Promise.reject(error))
-        }
-        return res.json()
-      })
-      .then(users => {
-        this.setState({
-          users: users,
-          admin: TokenService.getUserAuth()
-        })
-      })
-      .catch(error => this.setState({ error }))
-
-  }
 
   render() {
     let users = this.props.users.map((user, idx) => {
@@ -68,7 +39,6 @@ class Users extends React.Component {
       <>
         <section>
           <h3>View Users:</h3>
-          <p>Admins Only!</p>
         </section>
         {users}
       </>

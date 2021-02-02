@@ -347,13 +347,15 @@ class App extends React.Component {
                 history={history} />
             }}
           />
-          <Route
-            path="/users">
-            <Users
-              users={this.state.users}
-              handleBlockUser={this.handleBlockUser}
-            />
-          </Route>
+          <PrivateRoute
+            path={"/users"}
+            render={() =>
+              <Users
+                users={this.state.users}
+                handleBlockUser={this.handleBlockUser}
+              />
+            }
+          />
           <PublicOnlyRoute
             path="/sign-up"
             component={SignUp}

@@ -14,9 +14,7 @@ class Nav extends React.Component {
     TokenService.clearAdminKey()
   }
 
-
   renderLoginLink() {
-    console.log(this.props)
 
     return (
       <ul>
@@ -36,7 +34,7 @@ class Nav extends React.Component {
         <li><Link to="/events-search" >Search Events</Link></li>
         <li><Link to='/events'>Events</Link></li>
         {
-          (this.props.admin == "Yes")
+          (this.props.admin === "Yes")
             ? <li><Link to="users">View Users</Link></li>
             : null
         }

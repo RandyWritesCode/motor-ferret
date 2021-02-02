@@ -1,12 +1,13 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 function Login(props) {
   return (
     <section>
       <h3>Login</h3>
-      <p>Username: Admin1</p>
-      <p>Password: Aa1!Bb2@</p>
+      <p>Use the demo account below, or create an account on the <Link to='/sign-up'>sign up</ Link> page</p>
+      <p>Username: Admin10</p>
+      <p>Password: 1Aa!2Bb@</p>
       <form onSubmit={(e) => {
         props.handleLogin(e)
         props.history.push('/events')
