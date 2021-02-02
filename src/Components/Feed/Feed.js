@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 
 function Feed(props) {
@@ -7,7 +6,7 @@ function Feed(props) {
   let displayEvents = props.events.map((event, idx) => {
     let secondDate = (event.date2 ? `to ${event.date2}` : '')
     return (
-      <section>
+      <section key={idx}>
         <a href={event.website}>
           <h4>{event.title}</h4>
         </a>

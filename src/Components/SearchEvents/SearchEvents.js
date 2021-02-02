@@ -28,12 +28,10 @@ export default function Search(props) {
   return (
     // <Error>
     <div className='search'>
-      <header>
-        <section >
-          <h2>Event Search </h2>
-          <h3>Search for events</h3>
-        </section>
-      </header>
+      <section >
+        <h2>Event Search </h2>
+        <h3>Search for events</h3>
+      </section>
       <section>
         <SearchEventsForm
           handleEventSearch={props.handleEventSearch}

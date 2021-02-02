@@ -22,6 +22,12 @@ const TokenService = {
   clearAuthToken() {
     window.localStorage.removeItem(config.TOKEN_KEY)
   },
+  clearUserKey() {
+    window.localStorage.removeItem(config.USER_ID_KEY)
+  },
+  clearAdminKey() {
+    window.localStorage.removeItem(config.ADMIN_AUTH_KEY)
+  },
   hasAuthToken() {
     return !!TokenService.getAuthToken()
   },

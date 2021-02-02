@@ -1,6 +1,7 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
-export default function SignUp(props) {
+function SignUp(props) {
   return (
     <div>
 
@@ -11,7 +12,10 @@ export default function SignUp(props) {
         <p>Password should have at least one uppercase and one lowercase letter, a number and a special character (ie. !@#$) </p>
 
         <p>Aa1!Bb2@</p>
-        <form className='signup-form' onSubmit={(e) => props.handleSignUpSubmit(e)} >
+        <form className='signup-form' onSubmit={(e) => {
+          props.handleSignUpSubmit(e)
+          props.history.push('/login')
+        }} >
           <div>
             <label htmlFor="fullname">Full name:</label>
             <input type="text" name='fullname' id='fullname' placeholder='Randy Douglas'
@@ -37,9 +41,9 @@ export default function SignUp(props) {
           </div>
           <div>
             <span>Are you a Motor Ferret Administrator?: </span>
-            <input type="radio" id="admin" name="admin" value={1} />
+            <input type="radio" id="admin" name="admin" value="Yes" />
             <label htmlFor="admin">Yes</label>
-            <input type="radio" id="not_admin" name="admin" value={0} defaultChecked />
+            <input type="radio" id="not_admin" name="admin" value="No" defaultChecked />
             <label htmlFor="not_admin">No</label>
           </div>
           <button type='submit'>Sign Up</button>
@@ -49,3 +53,5 @@ export default function SignUp(props) {
     </div>
   )
 }
+
+export default withRouter(SignUp)

@@ -1,19 +1,23 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 function Login(props) {
   return (
     <section>
       <h3>Login</h3>
-      <p>Username: Admin10</p>
+      <p>Username: Admin1</p>
       <p>Password: Aa1!Bb2@</p>
-      <form onSubmit={(e) => props.handleLogin(e)}>
+      <form onSubmit={(e) => {
+        props.handleLogin(e)
+        props.history.push('/events')
+      }}>
         <div>
-          <label for="username">Username: </label>
+          <label htmlFor="username">Username: </label>
           <input type="text" id="username" />
         </div>
         <div>
-          <label for="password">Password: </label>
-          <input type="text" id="password" />
+          <label htmlFor="password">Password: </label>
+          <input type="password" id="password" />
         </div>
         <button>Login</button>
         <button>Clear</button>
@@ -22,4 +26,4 @@ function Login(props) {
   )
 }
 
-export default Login
+export default withRouter(Login)
