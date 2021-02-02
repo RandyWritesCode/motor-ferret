@@ -14,7 +14,7 @@ function EventForm(props) {
         <div>
           <label htmlFor="title">Title: </label>
           <input type="text" id="title"
-            defaultValue='testTitle'
+            // defaultValue='testTitle'
             required />
         </div>
 
@@ -35,7 +35,7 @@ function EventForm(props) {
         <div>
           <label htmlFor="organizer">Organizer: </label>
           <input type="text" id="organizer"
-            defaultValue='testOrg'
+            // defaultValue='testOrg'
             required />
         </div>
 
@@ -43,13 +43,13 @@ function EventForm(props) {
 
           <label htmlFor="website">Website: </label>
           <input type="text" id="website"
-            defaultValue='www.testWeb.com'
+          // defaultValue='www.testWeb.com'
           />
         </div>
         <div>
           <label htmlFor="event_type">Event Type: </label>
           <select name="event-type" id="event_type"
-            defaultValue='rallying'
+          // defaultValue='rallying'
           >
             <option value='rallying'>Rallying</option>
             <option value='time_attack'>Time Attack</option>
@@ -68,7 +68,7 @@ function EventForm(props) {
         <div>
           <label htmlFor="event_description">Event Description</label>
           <textarea name="event_description" id="event_description" cols="30" rows="10"
-          >Write about your event here...</textarea>
+          ></textarea>
         </div>
       </fieldset>
 
@@ -77,7 +77,7 @@ function EventForm(props) {
         <div>
           <label htmlFor="address">Street Address:</label>
           <input type="text" id="address"
-            defaultValue='194 Euclid Street'
+            // defaultValue='194 Euclid Street'
             required />
         </div>
 
@@ -89,21 +89,21 @@ function EventForm(props) {
         <div>
           <label htmlFor="city">City</label>
           <input type="text" id="city"
-            defaultValue='Haines City'
+            // defaultValue='Haines City'
             required />
         </div>
 
         <div>
           <label htmlFor="all_states">State (Abbreviation):</label>
           <input type="text" id="all_states"
-            defaultValue='FL'
+            // defaultValue='FL'
             required />
         </div>
 
         <div>
           <label htmlFor="zip">Zip Code:</label>
           <input type="text" id="zip"
-            defaultValue="33844"
+            // defaultValue="33844"
             required />
         </div>
       </fieldset>

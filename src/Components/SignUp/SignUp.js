@@ -19,7 +19,6 @@ function SignUp(props) {
           <div>
             <label htmlFor="fullname">Full name:</label>
             <input type="text" name='fullname' id='fullname' placeholder='Randy Douglas'
-              value='Randy Douglas'
               required />
           </div>
           <div>

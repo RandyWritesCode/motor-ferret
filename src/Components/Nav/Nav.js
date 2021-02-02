@@ -4,9 +4,9 @@ import TokenService from '../../Services/token-services'
 import "./Nav.css"
 
 class Nav extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
 
   handleLogoutClick = () => {
     TokenService.clearAuthToken()
