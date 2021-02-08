@@ -2,6 +2,7 @@ import React from 'react'
 import { withRouter, Link } from 'react-router-dom'
 
 function Login(props) {
+
   return (
     <section>
       <h3>Login</h3>
@@ -9,8 +10,7 @@ function Login(props) {
       <p>Username: Admin10</p>
       <p>Password: 1Aa!2Bb@</p>
       <form onSubmit={(e) => {
-        props.handleLogin(e)
-        props.history.push('/events')
+        props.handleLogin(e, props.history)
       }}>
         <div>
           <label htmlFor="username">Username: </label>

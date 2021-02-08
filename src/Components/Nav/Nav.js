@@ -9,6 +9,9 @@ class Nav extends React.Component {
   // }
 
   handleLogoutClick = () => {
+    this.setState({
+      loggedIn: false
+    })
     TokenService.clearAuthToken()
     TokenService.clearUserKey()
     TokenService.clearAdminKey()
@@ -46,11 +49,11 @@ class Nav extends React.Component {
       </ul >
     )
   }
-
+  //update state with login t/f.  the conditional below needs to be based on state. 
   render() {
     return (
       <nav>
-        {TokenService.hasAuthToken()
+        {this.props.loggedIn
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
       </nav>

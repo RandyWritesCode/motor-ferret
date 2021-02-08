@@ -1,8 +1,6 @@
 import React from 'react'
 
-
 class Users extends React.Component {
-
 
   render() {
     let users = this.props.users.map((user, idx) => {

@@ -34,7 +34,8 @@ class App extends React.Component {
       event_type: 'rallying',
       display: [],
       admin: "No",
-      error: null
+      error: null,
+      loggedIn: true
 
     }
   }
@@ -254,7 +255,7 @@ class App extends React.Component {
   //   history.push(destination)
   // }
 
-  handleLogin = event => {
+  handleLogin = (event, history) => {
     event.preventDefault()
     this.setState({ error: null })
     const { username, password } = event.target
@@ -270,8 +271,7 @@ class App extends React.Component {
         TokenService.saveUserAuth(res.admin)
         this.setState({
           admin: TokenService.getUserAuth()
-        })
-        this.props.history.push('/events')
+        }, () => history.push('/events'))
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -314,7 +314,9 @@ class App extends React.Component {
     return (
       <Router>
         <Nav
-          admin={this.state.admin} />
+          admin={this.state.admin}
+          loggedIn={this.state.loggedIn}
+        />
         <Header />
         <Switch>
           <Route exact
