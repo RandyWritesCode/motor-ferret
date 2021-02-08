@@ -8,16 +8,12 @@ class Nav extends React.Component {
   //   super(props)
   // }
 
-  handleLogoutClick = () => {
-    this.setState({
-      loggedIn: false
-    })
-    TokenService.clearAuthToken()
-    TokenService.clearUserKey()
-    TokenService.clearAdminKey()
-  }
+
+
 
   renderLoginLink() {
+    console.log(1, this.props.loggedIn)
+
 
     return (
       <ul>
@@ -31,6 +27,8 @@ class Nav extends React.Component {
   }
 
   renderLogoutLink() {
+    console.log(2, this.props.loggedIn)
+
     return (
       <ul>
         <li><Link to="/event-form" >Add Event</Link></li>
@@ -42,7 +40,7 @@ class Nav extends React.Component {
             : null
         }
         <li>
-          <Link to="/" onClick={this.handleLogoutClick}>
+          <Link to="/" onClick={this.props.handleLogout}>
             Logout
           </Link>
         </li>
@@ -51,9 +49,10 @@ class Nav extends React.Component {
   }
   //update state with login t/f.  the conditional below needs to be based on state. 
   render() {
+    console.log(3, this.props.loggedIn)
     return (
       <nav>
-        {this.props.loggedIn
+        {(this.props.loggedIn === true)
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
       </nav>

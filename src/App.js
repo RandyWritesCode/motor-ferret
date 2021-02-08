@@ -270,9 +270,11 @@ class App extends React.Component {
         TokenService.saveUserId(res.userId)
         TokenService.saveUserAuth(res.admin)
         this.setState({
-          admin: TokenService.getUserAuth()
+          admin: TokenService.getUserAuth(),
+          loggedIn: true
         }, () => history.push('/events'))
       })
+
       .catch(res => {
         this.setState({ error: res.error })
       })
@@ -309,13 +311,24 @@ class App extends React.Component {
       })
   }
 
+  handleLogout = () => {
+    this.setState({
+      loggedIn: false
+    })
+    TokenService.clearAuthToken()
+    TokenService.clearUserKey()
+    TokenService.clearAdminKey()
+
+  }
 
   render() {
+
     return (
       <Router>
         <Nav
           admin={this.state.admin}
           loggedIn={this.state.loggedIn}
+          handleLogout={this.handleLogout}
         />
         <Header />
         <Switch>
@@ -346,7 +359,8 @@ class App extends React.Component {
               console.log(history)
               return <Login
                 handleLogin={this.handleLogin}
-                history={history} />
+                history={history}
+                loggedIn={this.state.loggedIn} />
             }}
           />
           <PrivateRoute
