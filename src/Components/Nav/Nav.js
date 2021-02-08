@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import TokenService from '../../Services/token-services'
 import "./Nav.css"
 
 class Nav extends React.Component {
@@ -12,9 +11,6 @@ class Nav extends React.Component {
 
 
   renderLoginLink() {
-    console.log(1, this.props.loggedIn)
-
-
     return (
       <ul>
         <li><Link to="/event-form" >Add Event</Link></li>
@@ -27,7 +23,6 @@ class Nav extends React.Component {
   }
 
   renderLogoutLink() {
-    console.log(2, this.props.loggedIn)
 
     return (
       <ul>
@@ -49,7 +44,6 @@ class Nav extends React.Component {
   }
   //update state with login t/f.  the conditional below needs to be based on state. 
   render() {
-    console.log(3, this.props.loggedIn)
     return (
       <nav>
         {(this.props.loggedIn === true)
