@@ -2,37 +2,40 @@
   box-sizing: border-box;
 }
 
+
 body {
   text-align: center;
+  background-color: #edf2f4;
+  color: #2B2D42;
 }
 
 a:link {
-  color: white;
-  background-color: dimgray;
+  color: #2B2D42;
+  /* background-color: dimgray; */
 }
 
 a:visited {
-  color: black;
+  color: #50020F;
 }
 
 a:hover {
-  color: black;
-  background-color: white;
+  color: #556177;
+  background-color: WHITE;
 }
 
 a:active {
-  color: silver;
-  background-color: white;
+  color: #ef233c;
+  /* background-color: white; */
 }
         
 
 section {
-  background-color: lightgrey;
+  /* background-color: lightgrey; */
   padding: 30px 15px;
 }
 
 section:nth-child(even) {
-background-color: dimgray;
+  /* background-color: #edf2f4; */
 color: white;
 }
 

@@ -35,7 +35,8 @@ class App extends React.Component {
       display: [],
       admin: "No",
       error: null,
-      loggedIn: true
+      loggedIn: true,
+      user: {}
 
     }
   }
@@ -280,10 +281,12 @@ class App extends React.Component {
       })
   }
 
-  handleBlockUser = (user) => {
-    console.log(user.id)
-    let newBlockStatus = { blocked: user.blocked === "No" ? "Yes" : "No" }
-    console.log('newBlockStatus: ', newBlockStatus)
+  handleBlockUser = (user, history) => {
+    let newBlockStatus = {
+      blocked: user.blocked === "No"
+        ? "Yes"
+        : "No"
+    }
     let usersUrl = `${config.API_ENDPOINT}/users/admin/${user.id}`
     let updateUser = {
       method: 'PATCH',
@@ -294,7 +297,6 @@ class App extends React.Component {
     }
     fetch(usersUrl, updateUser)
       .then(res => {
-        console.log(res)
         if (!res.ok) {
           return res.json().then(error => {
             throw error
@@ -303,9 +305,8 @@ class App extends React.Component {
         return res.json()
       })
       .then(data => {
-        console.log('data', data)
-      }
-      )
+        history.push('/users')
+      })
       .catch(res => {
         this.setState({ error: res.error })
       })
@@ -356,7 +357,6 @@ class App extends React.Component {
           <Route
             path="/login"
             render={({ history }) => {
-              console.log(history)
               return <Login
                 handleLogin={this.handleLogin}
                 history={history}
@@ -365,12 +365,12 @@ class App extends React.Component {
           />
           <PrivateRoute
             path={"/users"}
-            render={() =>
-              <Users
+            render={({ history }) => {
+              return <Users
                 users={this.state.users}
                 handleBlockUser={this.handleBlockUser}
-              />
-            }
+                history={history} />
+            }}
           />
           <PublicOnlyRoute
             path="/sign-up"

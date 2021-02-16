@@ -46,6 +46,8 @@ class Nav extends React.Component {
   render() {
     return (
       <nav>
+        <img src='../../Images/motor_ferret_logo' ></img>
+        <hr />
         {(this.props.loggedIn === true)
           ? this.renderLogoutLink()
           : this.renderLoginLink()}

@@ -2,9 +2,13 @@ ul {
   list-style: none;
 }
 
+hr {
+  border: 1px solid #d90429;
+}
+
 nav {
   padding: 30px;
-  background-color: Dimgray;
+  background-color: #8D99AE;
 }
 
 nav {

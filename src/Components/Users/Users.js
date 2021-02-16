@@ -9,24 +9,22 @@ class Users extends React.Component {
           {user.username}
         </h4>
         <p>{user.profile_picture}</p>
+        {/* <img src={user.profile_picture} /> */}
         <p>
           Member Since:
         {user.start_date}
         </p>
 
-        {/* <p>
-          Flagged: {user.flagged === "No" ? "No" : "Yes"}
-        </p> */}
         <p>Blocked: {user.blocked === "No" ? "No" : "Yes"}
         </p>
 
         {user.blocked === "No"
           ? <button
-            onClick={() => this.props.handleBlockUser(user)}>
+            onClick={() => this.props.handleBlockUser(user, this.props.history)}>
             Block User
         </button>
           : <button
-            onClick={() => this.props.handleBlockUser(user)}>
+            onClick={() => this.props.handleBlockUser(user, this.props.history)}>
             Unblock User
         </button>}
       </section>
@@ -34,12 +32,12 @@ class Users extends React.Component {
 
     })
     return (
-      <>
+      <div>
         <section>
           <h3>View Users:</h3>
         </section>
         {users}
-      </>
+      </div>
     )
   }
 }
