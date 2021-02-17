@@ -5,13 +5,18 @@
 
 body {
   text-align: center;
-  background-color: #edf2f4;
+  background-color: #8d99ae;
   color: #2B2D42;
 }
 
+a {
+    text-decoration: none;
+
+}
 a:link {
   color: #2B2D42;
   /* background-color: dimgray; */
+  
 }
 
 a:visited {
@@ -19,8 +24,10 @@ a:visited {
 }
 
 a:hover {
-  color: #556177;
-  background-color: WHITE;
+  color: #edf2f4;
+  background-color: #8d99ae;
+  padding: 5px;
+  border-radius: 10px;
 }
 
 a:active {
@@ -31,13 +38,16 @@ a:active {
 
 section {
   /* background-color: lightgrey; */
+  background-color: #edf2f4;
   padding: 30px 15px;
+  margin-bottom: 10px;
+  border: 3px outset #edf2f4;
+  border-radius: 7px;
 }
 
-section:nth-child(even) {
-  /* background-color: #edf2f4; */
-color: white;
-}
+/* section:nth-child(even) {
+  background-color: #edf2f4;
+} */
 
 
 @media (prefers-reduced-motion: no-preference) {

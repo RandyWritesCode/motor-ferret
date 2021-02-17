@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./Nav.css"
+import Logo from '../../Images/motor_ferret_logo.png'
 
 class Nav extends React.Component {
   // constructor(props) {
@@ -12,7 +13,7 @@ class Nav extends React.Component {
 
   renderLoginLink() {
     return (
-      <ul>
+      <ul className='item'>
         <li><Link to="/event-form" >Add Event</Link></li>
         <li><Link to="/events-search" >Search Events</Link></li>
         <li><Link to='/events'>Events</Link></li>
@@ -25,7 +26,7 @@ class Nav extends React.Component {
   renderLogoutLink() {
 
     return (
-      <ul>
+      <ul className='item'>
         <li><Link to="/event-form" >Add Event</Link></li>
         <li><Link to="/events-search" >Search Events</Link></li>
         <li><Link to='/events'>Events</Link></li>
@@ -45,9 +46,15 @@ class Nav extends React.Component {
   //update state with login t/f.  the conditional below needs to be based on state. 
   render() {
     return (
-      <nav>
-        <img src='../../Images/motor_ferret_logo' ></img>
-        <hr />
+      <nav >
+        <div classname='large-container'>
+          <img className='item ' src={Logo} />
+          <div className='item large-item logo'>
+            <h1 >Motor Ferret</h1>
+            <h2 >The Ultimate Motorsports Event Finder</h2>
+          </div>
+
+        </div>
         {(this.props.loggedIn === true)
           ? this.renderLogoutLink()
           : this.renderLoginLink()}

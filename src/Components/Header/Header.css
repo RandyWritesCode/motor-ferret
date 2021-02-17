@@ -3,5 +3,16 @@ h1 {
 }
 
 header {
-  margin-top: 200px;
+  margin-top: 400px;
+}
+
+@media only screen and (min-width: 768px) {
+  header h2, header h1 {
+    display: none;
+  }
+  
+  header {
+    margin-top: 270px;
+
+  }
 }
