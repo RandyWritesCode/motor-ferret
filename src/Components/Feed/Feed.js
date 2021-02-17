@@ -14,14 +14,14 @@ function Feed(props) {
           ? props.events.map((event, idx) => {
             console.log(event)
             let formattedEventType = event.event_type.replace('_', " ").toUpperCase()
-            let secondDate = (event.date2 ? `to ${event.date2}` : '')
+            let secondDate = (event.date2 ? `to ${new Date(event.date2).toLocaleDateString()}` : '')
             return (
               <section key={idx}>
-                <a href={event.website}>
-                  <h4>{event.title}</h4>
-                </a>
+                {/* <a href={event.website}> */}
+                <h4>{event.title}</h4>
+                {/* </a> */}
                 {/* <p>{event.photo}</p> */}
-                <p>{event.date1}</p>
+                <p>{new Date(event.date1).toLocaleDateString()}</p>
                 <p>{secondDate}</p>
                 <p>{event.state}</p>
                 <p>Event Type: {formattedEventType}</p>

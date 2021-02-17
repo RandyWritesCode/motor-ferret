@@ -196,8 +196,8 @@ function EventForm(props) {
           <h4>{title}</h4>
         </a>
         {/* <img src={photo} /> */}
-        <p>{date1}</p>
-        <p>{(secondDate) ? `to ${date2}` : ''}</p>
+        <p>{new Date(date1).toLocaleDateString()}</p>
+        <p>{(secondDate) ? `to ${new Date(date2).toLocaleDateString()}` : ''}</p>
         <p>{state}</p>
         <p>{(formattedEventType === '') ? "" : `Event Type: ${formattedEventType}`}</p>
         <p>{(description === '') ? '' : `Description: ${description}`}</p>

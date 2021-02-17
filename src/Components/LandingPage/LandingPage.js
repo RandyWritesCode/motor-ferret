@@ -1,21 +1,23 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function LandingPage() {
   return (
     <>
       <section>
         <h3>Search for Events</h3>
-        <p>Use search feature to find motorsports events you're interested in. (Car shows, tuning shops and paint shops coming
-        soon)
+        <p>Use the <Link to='/events-search'>
+          search </Link>
+         feature to find motorsports events by title or state.
 			</p>
       </section>
       <section>
         <h3>Be an Adminstrator</h3>
-        <p>Approve events, view user accounts. (Block user feature coming soon!)</p>
+        <p>View <Link to='/users'>user accounts </Link> and toggle user access!</p>
       </section>
       <section>
         <h3>Create an Event</h3>
-        <p>Hosting an event? Share it with the community.</p>
+        <p>Hosting an event? <Link to="/event-form">Add</Link> it to share it with the community.</p>
       </section>
     </>
   )

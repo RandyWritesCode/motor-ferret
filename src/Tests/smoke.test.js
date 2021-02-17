@@ -53,7 +53,10 @@ describe('Components', () => {
   })
   it('LandingPage renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<LandingPage />, div)
+    ReactDOM.render(<BrowserRouter>
+      <LandingPage />
+    </BrowserRouter>
+      , div)
     ReactDOM.unmountComponentAtNode(div)
   })
   it('Login renders without crashing', () => {
