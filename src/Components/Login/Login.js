@@ -20,8 +20,8 @@ function Login(props) {
           <label htmlFor="password">Password: </label>
           <input type="password" id="password" />
         </div>
-        <button>Login</button>
-        <button>Clear</button>
+        <button className='primary' type='submit'>Login</button>
+        <button type='reset'>Clear</button>
       </form>
     </section>
   )

@@ -48,12 +48,13 @@ class Nav extends React.Component {
     return (
       <nav >
         <div classname='large-container'>
-          <img className='item ' src={Logo} />
+          <Link to="/">
+            <img className='item ' src={Logo} alt='a ferret driving a red car' />
+          </Link>
           <div className='item large-item logo'>
-            <h1 >Motor Ferret</h1>
-            <h2 >The Ultimate Motorsports Event Finder</h2>
+            <Link to="/"><h1>Motor Ferret</h1></Link>
+            <h2>The Ultimate Motorsports Event Finder</h2>
           </div>
-
         </div>
         {(this.props.loggedIn === true)
           ? this.renderLogoutLink()

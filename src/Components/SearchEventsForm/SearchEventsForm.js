@@ -30,8 +30,8 @@ function SearchEventsForm(props) {
 
   return (
     <div>
-      <button onClick={() => handleTitleForm()}>Title</button>
-      <button onClick={() => handleLocationForm()}>Location</button>
+      <button className='searchOption' onClick={() => handleTitleForm()}>Title</button>
+      <button className='searchOption' onClick={() => handleLocationForm()}>State</button>
 
       {displayForm()}
 

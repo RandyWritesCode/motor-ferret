@@ -30,6 +30,11 @@ a:hover {
   border-radius: 10px;
 }
 
+section > a:hover {
+  color: #d90429;
+      text-decoration: underline;
+
+}
 a:active {
   color: #ef233c;
   /* background-color: white; */

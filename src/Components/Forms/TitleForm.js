@@ -4,7 +4,7 @@ function TitleForm(props) {
 
   return (
     <form className='signup-form' onSubmit={props.handleEventSearch} >
-      <div>
+      <div className='center'>
         <label htmlFor="search_term">Search Term: </label>
         <input
           placeholder='championship'
@@ -23,7 +23,7 @@ function TitleForm(props) {
               </select>
             </div> */}
 
-      <button type='submit'>Search</button>
+      <button className='primary' type='submit'>Search</button>
       <button type='reset'>Clear From</button>
 
     </form>

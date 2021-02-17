@@ -13,14 +13,14 @@ function EventForm(props) {
 
   let formattedEventType = eventType.replace('_', " ").toUpperCase()
   let secondDate
-  if (date2 == '') {
+  if (date2 === '') {
     secondDate = false
   } else {
     secondDate = true
   }
 
-  return (<section>
-    <div>
+  return (<section className='formContainer'>
+    <div className='formItem'>
 
       <h3>Add Event Form</h3>
       <form onSubmit={(e) => props.handleAddEvent(e)}>
@@ -184,20 +184,24 @@ function EventForm(props) {
         </fieldset>
 
 
-        <button type="submit">Submit</button>
+        <button className='primary' type="submit">Submit</button>
         <button type="reset">Clear</button>
       </form>
     </div>
-    <div>
-      <a href={website}>
-        <h4>{title}</h4>
-      </a>
-      {/* <img src={photo} /> */}
-      <p>{date1}</p>
-      <p>{(secondDate) ? `to ${date2}` : ''}</p>
-      <p>{state}</p>
-      <p>{(formattedEventType == '') ? "" : `Event Type: ${formattedEventType}`}</p>
-      <p>{(description == '') ? '' : `Description: ${description}`}</p>
+    <div classname='formItem '>
+      <h3>Event Preview</h3>
+      <section className='preview'>
+
+        <a href={website}>
+          <h4>{title}</h4>
+        </a>
+        {/* <img src={photo} /> */}
+        <p>{date1}</p>
+        <p>{(secondDate) ? `to ${date2}` : ''}</p>
+        <p>{state}</p>
+        <p>{(formattedEventType === '') ? "" : `Event Type: ${formattedEventType}`}</p>
+        <p>{(description === '') ? '' : `Description: ${description}`}</p>
+      </section>
     </div>
   </section>
   )

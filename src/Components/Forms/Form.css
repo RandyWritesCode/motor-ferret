@@ -2,3 +2,46 @@ form div {
 display: flex;
 }
 
+.formContainer  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.formItem {
+  /* flex-grow: 1;   */
+  height: auto;
+  padding-right: 50px;
+}
+.preview {
+  min-width: 300px;
+  min-height: 300px;
+}
+
+button {
+  background-color: white;
+  border: 1px solid #2b2d42;
+  border-radius: 4px;
+  margin-right: 3px;
+}
+
+.primary {
+  color: #2b2d42;
+  font-weight: bold;
+}
+.searchOption {
+  margin-bottom: 30px;
+  margin-right: 10px;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (min-width: 768px) {
+
+  .formContainer {
+    flex-direction: row;
+  }
+}

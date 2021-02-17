@@ -11,7 +11,9 @@ function LocationForm(props) {
       <select id="state">
         {stateOption}
       </select>
-      <button type="submit">Submit</button>
+      <div className='center'>
+        <button className='primary' type="submit">Submit</button>
+      </div>
     </form>
   )
 }
