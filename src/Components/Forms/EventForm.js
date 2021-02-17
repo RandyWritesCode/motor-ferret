@@ -188,7 +188,7 @@ function EventForm(props) {
         <button type="reset">Clear</button>
       </form>
     </div>
-    <div classname='formItem '>
+    <div className='formItem '>
       <h3>Event Preview</h3>
       <section className='preview'>
 

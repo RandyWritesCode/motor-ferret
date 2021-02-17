@@ -4,26 +4,6 @@ import SearchEventsForm from '../SearchEventsForm/SearchEventsForm'
 // import Error from '../AppError/AppError';
 
 export default function Search(props) {
-  let displayEvents = props.display.map((event, idx) => {
-    let secondDate = (event.date2 ? `to ${event.date2}` : '')
-    let eventType = event.event_type
-    eventType = eventType.replace("_", " ")
-
-    return (
-      <section key={idx}>
-        <a href={event.website}>
-          <h4>{event.title}</h4>
-        </a>
-        <p>{event.photo}</p>
-        <p>{event.date1}</p>
-        <p>{secondDate}</p>
-        <p>{event.state}</p>
-
-        <p>Event Type: {eventType}</p>
-        <p>Description: {event.event_description}</p>
-      </section>
-    )
-  })
 
   return (
     // <Error>
@@ -42,7 +22,29 @@ export default function Search(props) {
         />
       </section>
       <div>
-        {displayEvents}
+        {(props.events)
+          ? props.display.map((event, idx) => {
+            let secondDate = (event.date2 ? `to ${event.date2}` : '')
+            let eventType = event.event_type
+            eventType = eventType.replace("_", " ")
+
+            return (
+              <section key={idx}>
+                <a href={event.website}>
+                  <h4>{event.title}</h4>
+                </a>
+                <p>{event.photo}</p>
+                <p>{event.date1}</p>
+                <p>{secondDate}</p>
+                <p>{event.state}</p>
+
+                <p>Event Type: {eventType}</p>
+                <p>Description: {event.event_description}</p>
+              </section>
+            )
+          })
+          : ''
+        }
       </div>
     </div>
     // </Error>

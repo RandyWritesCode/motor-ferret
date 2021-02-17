@@ -5,9 +5,6 @@ import {
   Switch,
   Route
 } from 'react-router-dom'
-// import {
-//   createBrowserHistory as history
-// } from 'history'
 import Nav from './Components/Nav/Nav'
 import Header from './Components/Header/Header'
 import Footer from './Components/Footer/Footer'
@@ -23,7 +20,6 @@ import config from './config'
 import TokenService from './Services/token-services'
 import AuthApiService from './Services/auth-api-service'
 import PrivateRoute from '../src/Components/Utils/PrivateRoute'
-
 
 class App extends React.Component {
   constructor() {

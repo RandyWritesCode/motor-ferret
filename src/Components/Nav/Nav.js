@@ -43,15 +43,17 @@ class Nav extends React.Component {
       </ul >
     )
   }
-  //update state with login t/f.  the conditional below needs to be based on state. 
+
   render() {
     return (
       <nav >
-        <div classname='large-container'>
-          <Link to="/">
-            <img className='item ' src={Logo} alt='a ferret driving a red car' />
+        <div className=' nav-container'>
+          <Link className=' nav-item flex1' to="/" >
+            <img
+              src={Logo}
+              alt='motor ferret logo, a ferret driving a red car' />
           </Link>
-          <div className='item large-item logo'>
+          <div className='nav-item nav-header flex2'>
             <Link to="/"><h1>Motor Ferret</h1></Link>
             <h2>The Ultimate Motorsports Event Finder</h2>
           </div>
