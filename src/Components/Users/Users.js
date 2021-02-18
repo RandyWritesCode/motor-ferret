@@ -14,11 +14,10 @@ class Users extends React.Component {
               <h4>
                 {user.username}
               </h4>
-              <p>{user.profile_picture}</p>
+              {/* <p>{user.profile_picture}</p> */}
               {/* <img src={user.profile_picture} /> */}
               <p>
-                Member Since:
-        {user.start_date}
+                Member Since: {new Date(user.start_date).toLocaleDateString()}
               </p>
 
               <p>Blocked: {user.blocked === "No" ? "No" : "Yes"}
