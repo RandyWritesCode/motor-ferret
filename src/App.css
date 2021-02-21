@@ -32,7 +32,7 @@ a:hover {
 
 section > a:hover {
   color: #d90429;
-      text-decoration: underline;
+  text-decoration: underline;
 
 }
 a:active {

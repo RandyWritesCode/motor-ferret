@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Form.css'
 
 function EventForm(props) {
+
   const [title, setTitle] = useState('')
   const [date1, setDate1] = useState('')
   const [date2, setDate2] = useState('')
@@ -39,9 +40,7 @@ function EventForm(props) {
           <div>
             <label htmlFor="date1">Start Date: </label>
             <input type="date" id="date1"
-              onChange={(e) => setDate1(e.target.value)}
-
-              required />
+              onChange={(e) => setDate1(e.target.value)} required />
           </div>
 
           <div>
