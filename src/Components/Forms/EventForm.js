@@ -20,6 +20,9 @@ function EventForm(props) {
     secondDate = true
   }
 
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
   return (<section className='formContainer'>
     <div className='formItem'>
 
@@ -40,13 +43,19 @@ function EventForm(props) {
           <div>
             <label htmlFor="date1">Start Date: </label>
             <input type="date" id="date1"
-              onChange={(e) => setDate1(e.target.value)} required />
+              onChange={(e) => {
+                console.log(e.target.value)
+                setDate1(e.target.value)
+              }} required />
           </div>
 
           <div>
             <label htmlFor="date2">End Date: </label>
             <input type="date" id="date2"
-              onChange={(e) => setDate2(e.target.value)}
+              onChange={(e) => {
+                console.log(e.target.value)
+                setDate2(e.target.value)
+              }}
             />
           </div>
 
@@ -195,13 +204,16 @@ function EventForm(props) {
           <h4>{title}</h4>
         </a>
         {/* <img src={photo} /> */}
-        <p>{new Date(date1).toLocaleDateString()}</p>
-        <p>{(secondDate) ? `to ${new Date(date2).toLocaleDateString()}` : ''}</p>
+        <p>{days[new Date(date1).getUTCDay()]}, {months[new Date(date1).getUTCMonth()]} {new Date(date1).getUTCDate()}, {new Date(date1).getUTCFullYear()}</p>
+        <p>{(secondDate)
+          ? `to ${days[new Date(date2).getUTCDay()]}, ${months[new Date(date2).getUTCMonth()]} ${new Date(date2).getUTCDate()}, ${new Date(date2).getUTCFullYear()}`
+          : ''}</p>
         <p>{state}</p>
         <p>{(formattedEventType === '') ? "" : `Event Type: ${formattedEventType}`}</p>
         <p>{(description === '') ? '' : `Description: ${description}`}</p>
       </section>
     </div>
+
   </section>
   )
 }
