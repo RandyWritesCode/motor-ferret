@@ -15,7 +15,6 @@ function Feed(props) {
       {
         (props.events)
           ? props.events.map((event, idx) => {
-            console.log(event)
             let formattedEventType = event.event_type.replace('_', " ").toUpperCase()
             let secondDate = (event.date2
               ? `to ${days[new Date(event.date2).getUTCDay()]}, ${months[new Date(event.date2).getUTCMonth()]} ${new Date(event.date2).getUTCDate()}, ${new Date(event.date2).getUTCFullYear()}`
@@ -23,10 +22,9 @@ function Feed(props) {
 
             return (
               <section key={idx}>
-                {/* <a href={event.website}> */}
-                <h4>{event.title}</h4>
-                {/* </a> */}
-                {/* <p>{event.photo}</p> */}
+                <a href={event.website}>
+                  <h4>{event.title}</h4>
+                </a>
                 <p>{days[new Date(event.date1).getUTCDay()]}, {months[new Date(event.date1).getUTCMonth()]} {new Date(event.date1).getUTCDate()}, {new Date(event.date1).getUTCFullYear()}</p>
                 <p>{secondDate}</p>
                 <p>{event.state}</p>

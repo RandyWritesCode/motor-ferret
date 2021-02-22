@@ -1,12 +1,10 @@
 import React from 'react';
 import SearchEventsForm from '../SearchEventsForm/SearchEventsForm'
 
-// import Error from '../AppError/AppError';
 
 export default function Search(props) {
 
   return (
-    // <Error>
     <div className='search'>
       <section >
         <h2>Event Search </h2>
@@ -33,7 +31,7 @@ export default function Search(props) {
                 <a href={event.website}>
                   <h4>{event.title}</h4>
                 </a>
-                <p>{event.photo}</p>
+                {/* <p>{event.photo}</p> */}
                 <p>{event.date1}</p>
                 <p>{secondDate}</p>
                 <p>{event.state}</p>
@@ -47,7 +45,6 @@ export default function Search(props) {
         }
       </div>
     </div>
-    // </Error>
   );
 
 };

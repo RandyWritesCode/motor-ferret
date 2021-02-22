@@ -4,12 +4,6 @@ import "./Nav.css"
 import Logo from '../../Images/motor_ferret_logo.png'
 
 class Nav extends React.Component {
-  // constructor(props) {
-  //   super(props)
-  // }
-
-
-
 
   renderLoginLink() {
     return (

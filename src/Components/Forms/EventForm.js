@@ -8,18 +8,10 @@ function EventForm(props) {
   const [date2, setDate2] = useState('')
   const [website, setWebsite] = useState('')
   const [eventType, setEventType] = useState('')
-  // const [photo, setPhoto] = useState('')
   const [description, setDescription] = useState('')
   const [state, setState] = useState('')
 
   let formattedEventType = eventType.replace('_', " ").toUpperCase()
-  let secondDate
-  if (date2 === '') {
-    secondDate = false
-  } else {
-    secondDate = true
-  }
-
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -44,7 +36,6 @@ function EventForm(props) {
             <label htmlFor="date1">Start Date: </label>
             <input type="date" id="date1"
               onChange={(e) => {
-                console.log(e.target.value)
                 setDate1(e.target.value)
               }} required />
           </div>
@@ -53,7 +44,6 @@ function EventForm(props) {
             <label htmlFor="date2">End Date: </label>
             <input type="date" id="date2"
               onChange={(e) => {
-                console.log(e.target.value)
                 setDate2(e.target.value)
               }}
             />
@@ -62,7 +52,6 @@ function EventForm(props) {
           <div>
             <label htmlFor="organizer">Organizer: </label>
             <input type="text" id="organizer"
-              // defaultValue='testOrg'
               required />
           </div>
 
@@ -86,13 +75,6 @@ function EventForm(props) {
           </div>
 
           <div>
-            <label htmlFor="photo">
-              Photo URL
-          </label>
-            <input type='text' id="photo" />
-          </div>
-
-          <div>
             <label htmlFor="event_description">Event Description</label>
             <textarea name="event_description" id="event_description" cols="30" rows="10"
               onChange={(e) => setDescription(e.target.value)}
@@ -105,7 +87,6 @@ function EventForm(props) {
           <div>
             <label htmlFor="address">Street Address:</label>
             <input type="text" id="address"
-              // defaultValue='194 Euclid Street'
               required />
           </div>
 
@@ -117,7 +98,6 @@ function EventForm(props) {
           <div>
             <label htmlFor="city">City</label>
             <input type="text" id="city"
-              // defaultValue='Haines City'
               required />
           </div>
 
@@ -186,7 +166,6 @@ function EventForm(props) {
           <div>
             <label htmlFor="zip">Zip Code:</label>
             <input type="text" id="zip"
-              // defaultValue="33844"
               required />
           </div>
         </fieldset>
@@ -203,9 +182,10 @@ function EventForm(props) {
         <a href={website}>
           <h4>{title}</h4>
         </a>
-        {/* <img src={photo} /> */}
-        <p>{days[new Date(date1).getUTCDay()]}, {months[new Date(date1).getUTCMonth()]} {new Date(date1).getUTCDate()}, {new Date(date1).getUTCFullYear()}</p>
-        <p>{(secondDate)
+        <p>{(date1)
+          ? `${days[new Date(date1).getUTCDay()]}, ${months[new Date(date1).getUTCMonth()]} ${new Date(date1).getUTCDate()}, ${new Date(date1).getUTCFullYear()}`
+          : ''}</p>
+        <p>{(date2)
           ? `to ${days[new Date(date2).getUTCDay()]}, ${months[new Date(date2).getUTCMonth()]} ${new Date(date2).getUTCDate()}, ${new Date(date2).getUTCFullYear()}`
           : ''}</p>
         <p>{state}</p>
@@ -213,7 +193,6 @@ function EventForm(props) {
         <p>{(description === '') ? '' : `Description: ${description}`}</p>
       </section>
     </div>
-
   </section>
   )
 }

@@ -85,15 +85,11 @@ class App extends React.Component {
 
   }
 
-  //consider refactoring later so that one event search handles location search and keyword search
   handleEventSearch = (event
-    // , formType
   ) => {
     event.preventDefault()
     let searchTerm = event.target.search_term.value
     searchTerm = searchTerm.toLowerCase()
-    // let eventType = event.target.event_type.value
-    // let location = event.target.location.value
 
     let searchEventsUrl = `${config.API_ENDPOINT}/events`
     let getAllEvents = {
@@ -112,7 +108,6 @@ class App extends React.Component {
       .then(display => {
         display = display.filter(event => {
           let eventSearchResults = event.title.toLowerCase()
-          console.log('search results: ', eventSearchResults.includes(searchTerm))
           return eventSearchResults.includes(searchTerm)
         })
         this.setState({
@@ -125,8 +120,6 @@ class App extends React.Component {
   handleEventSearchByLocation = (event) => {
     event.preventDefault()
     let searchLocation = event.target.state.value
-    // let eventType = event.target.event_type.value
-    // let location = event.target.location.value
 
     let searchEventsUrl = `${config.API_ENDPOINT}/events`
     let getAllEvents = {
@@ -144,7 +137,6 @@ class App extends React.Component {
       })
       .then(display => {
         display = display.filter(event => {
-          console.log(event.state)
           let eventSearchResults = event.state
           return eventSearchResults.includes(searchLocation)
         })
@@ -156,7 +148,6 @@ class App extends React.Component {
   }
 
   handleAddEvent = (event) => {
-    console.log(event)
     event.preventDefault()
 
     const title = event.target.title.value
@@ -166,7 +157,7 @@ class App extends React.Component {
     const website = event.target.website.value
     const event_type = event.target.event_type.value
     const event_description = event.target.event_description.value
-    const photo = event.target.photo.value
+    // const photo = event.target.photo.value
     const address = event.target.address.value
     const address2 = event.target.address2.value
     const city = event.target.city.value
@@ -188,7 +179,7 @@ class App extends React.Component {
         website,
         event_type,
         event_description,
-        photo,
+        // photo,
         address,
         address2,
         city,
@@ -199,7 +190,6 @@ class App extends React.Component {
 
     fetch(eventsUrl, postNewEvent)
       .then(res => {
-        console.log(res.ok)
         if (!res.ok) {
           return res.json().then(error => {
             throw error
@@ -208,12 +198,8 @@ class App extends React.Component {
         return res.json()
       })
       .then(data => {
-        console.log(data)
-        // addEventByContext(data)
         this.props.history.push('/feed')
-        // this.setState({
-        //   events: events
-        // })
+
       })
 
       .catch(error => this.setState({ error }))
@@ -246,11 +232,6 @@ class App extends React.Component {
       })
   }
 
-  // handleLoginSuccess = () => {
-  //   const { location, history } = this.props
-  //   const destination = (location.state || {}).from || '/'
-  //   history.push(destination)
-  // }
 
   handleLogin = (event, history) => {
     event.preventDefault()

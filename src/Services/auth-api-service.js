@@ -29,8 +29,7 @@ const AuthApiService = {
       body: JSON.stringify(user),
     })
       .then(res =>
-        console.log(res)
-          (!res.ok)
+        (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
@@ -38,24 +37,7 @@ const AuthApiService = {
         console.log(err)
       })
   },
-  // patchUser(user) {
-  //   return fetch(`${config.API_ENDPOINT}/users`, {
-  //     method: 'PATCH',
-  //     headers: {
-  //       'content-type': 'application/json',
-  //     },
-  //     body: JSON.stringify(user),
-  //   })
-  //     .then(res =>
-  //       console.log(res)
-  //         (!res.ok)
-  //         ? res.json().then(e => Promise.reject(e))
-  //         : res.json()
-  //     )
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-  // },
+
 }
 
 export default AuthApiService
