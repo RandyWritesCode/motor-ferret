@@ -31,7 +31,6 @@ export default function Search(props) {
                 <a href={event.website}>
                   <h4>{event.title}</h4>
                 </a>
-                {/* <p>{event.photo}</p> */}
                 <p>{event.date1}</p>
                 <p>{secondDate}</p>
                 <p>{event.state}</p>
