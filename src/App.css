@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
 }
 
@@ -15,7 +15,7 @@ a {
 }
 a:link {
   color: #2B2D42;
-  /* background-color: dimgray; */
+  background-color: dimgray;
   
 }
 
@@ -37,12 +37,12 @@ section > a:hover {
 }
 a:active {
   color: #ef233c;
-  /* background-color: white; */
+  background-color: white;
 }
         
 
 section {
-  /* background-color: lightgrey; */
+  background-color: lightgrey;
   background-color: #edf2f4;
   padding: 30px 15px;
   margin: 10px;
@@ -50,11 +50,11 @@ section {
   border-radius: 7px;
 }
 
-/* section:nth-child(even) {
+section:nth-child(even) {
   background-color: #edf2f4;
-} */
+}
 
 
 @media (prefers-reduced-motion: no-preference) {
         
-        }
+        } */
