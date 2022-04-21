@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+
+import { Box, Grid, MenuItem, Paper, TextField } from '@mui/material';
 import './Form.css';
 
 function EventForm(props) {
@@ -35,27 +37,35 @@ function EventForm(props) {
         'December',
     ];
 
+    let eventTypes = [
+        { title: 'Rallying', value: 'rallying' },
+        { title: 'Time Attack', value: 'time_attack' },
+        { title: 'Drag Racing', value: 'drag_racing' },
+        { title: 'Road Racing', value: 'road_racing' },
+        { title: 'Other', value: 'other' },
+    ];
+
     return (
         <section className='formContainer'>
-            <div className='formItem'>
+            <Grid className='formItem'>
                 <h3>Add Event Form</h3>
-                <form onSubmit={e => props.handleAddEvent(e)}>
-                    <fieldset>
+                <Box component='form' onSubmit={e => props.handleAddEvent(e)}>
+                    <Paper>
                         <legend>About your Event</legend>
 
-                        <div>
-                            <label htmlFor='title'>Title: </label>
-                            <input
+                        <Grid>
+                            <TextField
                                 type='text'
+                                label='Title:'
                                 id='title'
                                 onChange={e => setTitle(e.target.value)}
                                 required
                             />
-                        </div>
+                        </Grid>
 
-                        <div>
-                            <label htmlFor='date1'>Start Date: </label>
-                            <input
+                        <Grid>
+                            <TextField
+                                label='Start Date: '
                                 type='date'
                                 id='date1'
                                 onChange={e => {
@@ -63,47 +73,61 @@ function EventForm(props) {
                                 }}
                                 required
                             />
-                        </div>
+                        </Grid>
 
-                        <div>
-                            <label htmlFor='date2'>End Date: </label>
-                            <input
-                                type='date'
+                        <Grid>
+                            <TextField
                                 id='date2'
+                                type='date'
+                                label='End Date: '
                                 onChange={e => {
                                     setDate2(e.target.value);
                                 }}
                             />
-                        </div>
+                        </Grid>
 
-                        <div>
-                            <label htmlFor='organizer'>Organizer: </label>
-                            <input type='text' id='organizer' required />
-                        </div>
-
-                        <div>
-                            <label htmlFor='website'>Website: </label>
-                            <input
+                        <Grid>
+                            <TextField
+                                id='organizer'
                                 type='text'
+                                label='Organizer: '
+                                required
+                            />
+                        </Grid>
+                        <Grid>
+                            <TextField
                                 id='website'
+                                type='text'
+                                label='Website: '
                                 onChange={e => setWebsite(e.target.value)}
                             />
-                        </div>
-                        <div>
-                            <label htmlFor='event_type'>Event Type: </label>
-                            <select
-                                name='event-type'
+                        </Grid>
+                        <Grid>
+                            <TextField
                                 id='event_type'
+                                name='event-type'
+                                label='Event Type:'
+                                select
+                                sx={{
+                                    width: 300,
+                                }}
+                                value={eventType}
                                 onChange={e => setEventType(e.target.value)}
                             >
-                                <option value='rallying'>Rallying</option>
-                                <option value='time_attack'>Time Attack</option>
-                                <option value='drag_racing'>Drag Racing</option>
-                                <option value='road_racing'>Road racing</option>
-                            </select>
-                        </div>
+                                {eventTypes.map((eventType, idx) => {
+                                    return (
+                                        <MenuItem
+                                            key={`eventType-${idx}`}
+                                            value={eventType.value}
+                                        >
+                                            {eventType.title}
+                                        </MenuItem>
+                                    );
+                                })}
+                            </TextField>
+                        </Grid>
 
-                        <div>
+                        <Grid>
                             <label htmlFor='event_description'>
                                 Event Description
                             </label>
@@ -114,29 +138,29 @@ function EventForm(props) {
                                 rows='10'
                                 onChange={e => setDescription(e.target.value)}
                             ></textarea>
-                        </div>
-                    </fieldset>
+                        </Grid>
+                    </Paper>
 
-                    <fieldset>
+                    <Paper>
                         <legend>Event Location</legend>
-                        <div>
+                        <Grid>
                             <label htmlFor='address'>Street Address:</label>
-                            <input type='text' id='address' required />
-                        </div>
+                            <TextField type='text' id='address' required />
+                        </Grid>
 
-                        <div>
+                        <Grid>
                             <label htmlFor='address2'>
                                 Street Address Line 2:
                             </label>
-                            <input type='text' id='address2' />
-                        </div>
+                            <TextField type='text' id='address2' />
+                        </Grid>
 
-                        <div>
+                        <Grid>
                             <label htmlFor='city'>City</label>
-                            <input type='text' id='city' required />
-                        </div>
+                            <TextField type='text' id='city' required />
+                        </Grid>
 
-                        <div>
+                        <Grid>
                             <label htmlFor='all_states'>
                                 State (or district):{' '}
                             </label>
@@ -199,21 +223,21 @@ function EventForm(props) {
                                 <option value='WI'>WI</option>
                                 <option value='WY'>WY</option>
                             </select>
-                        </div>
+                        </Grid>
 
-                        <div>
+                        <Grid>
                             <label htmlFor='zip'>Zip Code:</label>
-                            <input type='text' id='zip' required />
-                        </div>
-                    </fieldset>
+                            <TextField type='text' id='zip' required />
+                        </Grid>
+                    </Paper>
 
                     <button className='primary' type='submit'>
                         Submit
                     </button>
                     <button type='reset'>Clear</button>
-                </form>
-            </div>
-            <div className='formItem '>
+                </Box>
+            </Grid>
+            <Grid className='formItem '>
                 <h3>Event Preview</h3>
                 <section className='preview'>
                     <a href={website}>
@@ -249,7 +273,7 @@ function EventForm(props) {
                             : `Description: ${description}`}
                     </p>
                 </section>
-            </div>
+            </Grid>
         </section>
     );
 }
