@@ -17,7 +17,6 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import './Nav.css';
-import Logo from '../../Images/motor_ferret_logo.png';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -106,8 +105,10 @@ const Nav = () => {
         </Menu>
     );
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position='static'>
+        <Box
+            sx={{ flexGrow: 1, position: 'fixed', zIndex: '1', width: '100%' }}
+        >
+            <AppBar>
                 <Toolbar>
                     <IconButton
                         id='primary-menu-button'
@@ -120,28 +121,14 @@ const Nav = () => {
                     >
                         <MenuIcon sx={{ color: 'white' }} />
                     </IconButton>
-                    {/* <Card
-                        component={Link}
-                        to='/'
-                        sx={{
-                            backgroundColor: 'transparent',
-                            paddingLeft: 2,
-                            boxShadow: 0,
-                        }}
-                    >
-                        <CardMedia
-                            component='img'
-                            height='40'
-                            width='40'
-                            image={Logo}
-                            alt='motor ferret logo'
-                        />
-                    </Card> */}
+
                     <Typography
                         variant='h1'
                         sx={{ fontSize: '1.5rem', paddingLeft: 4 }}
                     >
-                        <Link to='/'>Motor Ferret</Link>
+                        <Link to='/' style={{ textDecoration: 'none' }}>
+                            Motor Ferret
+                        </Link>
                     </Typography>
                     <Search>
                         <SearchIconWrapper>

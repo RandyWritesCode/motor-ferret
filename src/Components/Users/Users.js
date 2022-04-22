@@ -1,16 +1,18 @@
 import React from 'react';
 
+import { Button } from '@mui/material';
+import { PageContainer, ItemContainer } from '../../shared/index';
 class Users extends React.Component {
     render() {
         return (
-            <div>
+            <PageContainer>
                 <section>
-                    <h3>View Users:</h3>
+                    <h3>Users:</h3>
                 </section>
                 {this.props.users
                     ? this.props.users.map((user, idx) => {
                           return (
-                              <section key={idx}>
+                              <ItemContainer idx={idx}>
                                   <h4>{user.username}</h4>
                                   {/* <p>{user.profile_picture}</p> */}
                                   {/* <img src={user.profile_picture} /> */}
@@ -27,7 +29,7 @@ class Users extends React.Component {
                                   </p>
 
                                   {user.blocked === 'No' ? (
-                                      <button
+                                      <Button
                                           onClick={() =>
                                               this.props.handleBlockUser(
                                                   user,
@@ -36,9 +38,9 @@ class Users extends React.Component {
                                           }
                                       >
                                           Block User
-                                      </button>
+                                      </Button>
                                   ) : (
-                                      <button
+                                      <Button
                                           onClick={() =>
                                               this.props.handleBlockUser(
                                                   user,
@@ -47,13 +49,13 @@ class Users extends React.Component {
                                           }
                                       >
                                           Unblock User
-                                      </button>
+                                      </Button>
                                   )}
-                              </section>
+                              </ItemContainer>
                           );
                       })
                     : ''}
-            </div>
+            </PageContainer>
         );
     }
 }

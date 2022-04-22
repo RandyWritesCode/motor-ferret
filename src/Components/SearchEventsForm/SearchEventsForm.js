@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button, Grid } from '@mui/material';
 import TitleForm from '../Forms/TitleForm.js';
 import LocationForm from '../Forms/LocationForm.js';
 
@@ -29,19 +30,29 @@ function SearchEventsForm(props) {
     }
 
     return (
-        <div>
-            <button className='searchOption' onClick={() => handleTitleForm()}>
-                Title
-            </button>
-            <button
-                className='searchOption'
-                onClick={() => handleLocationForm()}
-            >
-                State
-            </button>
+        <Grid container>
+            <Grid xs={3} sx={{ marginLeft: 1 }}>
+                <Button
+                    variant='outlined'
+                    className='searchOption'
+                    onClick={() => handleTitleForm()}
+                >
+                    Title
+                </Button>
+            </Grid>
+
+            <Grid xs={3} sx={{ marginLeft: 1 }}>
+                <Button
+                    variant='outlined'
+                    className='searchOption'
+                    onClick={() => handleLocationForm()}
+                >
+                    State
+                </Button>
+            </Grid>
 
             {displayForm()}
-        </div>
+        </Grid>
     );
 }
 

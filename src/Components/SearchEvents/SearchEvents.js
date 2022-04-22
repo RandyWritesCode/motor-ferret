@@ -1,9 +1,10 @@
 import React from 'react';
+import { PageContainer } from '../../shared/index';
 import SearchEventsForm from '../SearchEventsForm/SearchEventsForm';
 
 export default function Search(props) {
     return (
-        <div className='search'>
+        <PageContainer>
             <section>
                 <h2>Event Search </h2>
                 <h3>Search for events</h3>
@@ -43,6 +44,6 @@ export default function Search(props) {
                       })
                     : ''}
             </div>
-        </div>
+        </PageContainer>
     );
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Card, Grid } from '@mui/material';
+import { PageContainer, ItemContainer } from '../../shared/index';
 
 function Feed(props) {
     let days = [
@@ -10,6 +12,7 @@ function Feed(props) {
         'Friday',
         'Saturday',
     ];
+
     let months = [
         'January',
         'February',
@@ -26,11 +29,11 @@ function Feed(props) {
     ];
 
     return (
-        <>
+        <PageContainer>
             <section>
                 <h3>Upcoming Events</h3>
             </section>
-            <>
+            <Grid container spacing={1}>
                 {props.events
                     ? props.events.map((event, idx) => {
                           let formattedEventType = event.event_type
@@ -49,7 +52,7 @@ function Feed(props) {
                               : '';
 
                           return (
-                              <section key={idx}>
+                              <ItemContainer idx={idx}>
                                   <a href={event.website}>
                                       <h4>{event.title}</h4>
                                   </a>
@@ -69,12 +72,12 @@ function Feed(props) {
                                   <p>{event.state}</p>
                                   <p>Event Type: {formattedEventType}</p>
                                   <p>Description: {event.event_description}</p>
-                              </section>
+                              </ItemContainer>
                           );
                       })
                     : ''}
-            </>
-        </>
+            </Grid>
+        </PageContainer>
     );
 }
 

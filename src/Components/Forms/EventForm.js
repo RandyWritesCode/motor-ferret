@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 
-import { Box, Grid, MenuItem, Paper, TextField } from '@mui/material';
+import {
+    Box,
+    Button,
+    Grid,
+    MenuItem,
+    Paper,
+    TextField,
+    Typography,
+} from '@mui/material';
+
 import './Form.css';
+import { PageContainer } from '../../shared/index';
 
 function EventForm(props) {
     const [title, setTitle] = useState('');
@@ -45,29 +55,95 @@ function EventForm(props) {
         { title: 'Other', value: 'other' },
     ];
 
-    return (
-        <section className='formContainer'>
-            <Grid className='formItem'>
-                <h3>Add Event Form</h3>
-                <Box component='form' onSubmit={e => props.handleAddEvent(e)}>
-                    <Paper>
-                        <legend>About your Event</legend>
+    let states = [
+        '',
+        'AK',
+        'AL',
+        'AR',
+        'AS',
+        'AZ',
+        'CA',
+        'CO',
+        'CT',
+        'DC',
+        'DE',
+        'FL',
+        'GA',
+        'GU',
+        'HI',
+        'IA',
+        'ID',
+        'IL',
+        'IN',
+        'KS',
+        'KY',
+        'LA',
+        'MA',
+        'MD',
+        'ME',
+        'MI',
+        'MN',
+        'MO',
+        'MS',
+        'MT',
+        'NC',
+        'ND',
+        'NE',
+        'NH',
+        'NJ',
+        'NM',
+        'NV',
+        'NY',
+        'OH',
+        'OK',
+        'OR',
+        'PA',
+        'PR',
+        'RI',
+        'SC',
+        'SD',
+        'TN',
+        'TX',
+        'UT',
+        'VA',
+        'VI',
+        'VT',
+        'WA',
+        'WI',
+        'WV',
+        'WY',
+    ];
 
-                        <Grid>
+    return (
+        <PageContainer>
+            <Grid className='formItem'>
+                <Typography variant='h3' sx={{ fontSize: '40px' }}>
+                    Add your Event
+                </Typography>
+                <Grid
+                    direction='column'
+                    component='form'
+                    onSubmit={e => props.handleAddEvent(e)}
+                >
+                    <Grid container>
+                        <Grid xs='auto' sx={{ margin: 2 }}>
                             <TextField
                                 type='text'
                                 label='Title:'
                                 id='title'
+                                value={title}
                                 onChange={e => setTitle(e.target.value)}
                                 required
                             />
                         </Grid>
 
-                        <Grid>
+                        <Grid xs='auto' sx={{ margin: 2 }}>
                             <TextField
                                 label='Start Date: '
+                                InputLabelProps={{ shrink: true }}
                                 type='date'
                                 id='date1'
+                                value={date1}
                                 onChange={e => {
                                     setDate1(e.target.value);
                                 }}
@@ -75,18 +151,20 @@ function EventForm(props) {
                             />
                         </Grid>
 
-                        <Grid>
+                        <Grid xs='auto' sx={{ margin: 2 }}>
                             <TextField
                                 id='date2'
                                 type='date'
+                                InputLabelProps={{ shrink: true }}
                                 label='End Date: '
+                                value={date2}
                                 onChange={e => {
                                     setDate2(e.target.value);
                                 }}
                             />
                         </Grid>
 
-                        <Grid>
+                        <Grid xs='auto' sx={{ margin: 2 }}>
                             <TextField
                                 id='organizer'
                                 type='text'
@@ -94,15 +172,16 @@ function EventForm(props) {
                                 required
                             />
                         </Grid>
-                        <Grid>
+                        <Grid xs='auto' sx={{ margin: 2 }}>
                             <TextField
                                 id='website'
                                 type='text'
                                 label='Website: '
+                                value={website}
                                 onChange={e => setWebsite(e.target.value)}
                             />
                         </Grid>
-                        <Grid>
+                        <Grid xs='auto' sx={{ margin: 2 }}>
                             <TextField
                                 id='event_type'
                                 name='event-type'
@@ -127,118 +206,86 @@ function EventForm(props) {
                             </TextField>
                         </Grid>
 
-                        <Grid>
-                            <label htmlFor='event_description'>
-                                Event Description
-                            </label>
-                            <textarea
+                        <Grid xs='auto' sx={{ margin: 2 }}>
+                            <TextField
+                                label='Event Description'
                                 name='event_description'
                                 id='event_description'
-                                cols='30'
-                                rows='10'
+                                rows={4}
+                                multiline
+                                value={description}
                                 onChange={e => setDescription(e.target.value)}
-                            ></textarea>
+                            />
                         </Grid>
-                    </Paper>
+                        {/* </Grid>
 
-                    <Paper>
-                        <legend>Event Location</legend>
-                        <Grid>
-                            <label htmlFor='address'>Street Address:</label>
-                            <TextField type='text' id='address' required />
-                        </Grid>
-
-                        <Grid>
-                            <label htmlFor='address2'>
-                                Street Address Line 2:
-                            </label>
-                            <TextField type='text' id='address2' />
+                    <Grid> */}
+                        <Grid xs='auto' sx={{ margin: 2 }}>
+                            <TextField
+                                label='Street Address:'
+                                type='text'
+                                id='address'
+                                required
+                            />
                         </Grid>
 
-                        <Grid>
-                            <label htmlFor='city'>City</label>
-                            <TextField type='text' id='city' required />
+                        <Grid xs='auto' sx={{ margin: 2 }}>
+                            <TextField
+                                label=' Street Address Line 2:'
+                                type='text'
+                                id='address2'
+                            />
                         </Grid>
 
-                        <Grid>
-                            <label htmlFor='all_states'>
-                                State (or district):{' '}
-                            </label>
+                        <Grid xs='auto' sx={{ margin: 2 }}>
+                            <TextField
+                                label='City'
+                                type='text'
+                                id='city'
+                                required
+                            />
+                        </Grid>
 
-                            <select
+                        <Grid xs='auto' sx={{ margin: 2 }}>
+                            <TextField
+                                select
+                                label='State (or district):'
                                 name='all_states'
                                 id='all_states'
+                                value={state}
                                 onChange={e => setState(e.target.value)}
                                 required
                             >
-                                <option value='AL'>AL</option>
-                                <option value='AK'>AK</option>
-                                <option value='AZ'>AZ</option>
-                                <option value='AR'>AR</option>
-                                <option value='CA'>CA</option>
-                                <option value='CO'>CO</option>
-                                <option value='CT'>CT</option>
-                                <option value='DC'>DC</option>
-                                <option value='DE'>DE</option>
-                                <option value='FL'>FL</option>
-                                <option value='GA'>GA</option>
-                                <option value='HI'>HI</option>
-                                <option value='ID'>ID</option>
-                                <option value='IL'>IL</option>
-                                <option value='IN'>IN</option>
-                                <option value='IA'>IA</option>
-                                <option value='KS'>KS</option>
-                                <option value='KY'>KY</option>
-                                <option value='LA'>LA</option>
-                                <option value='ME'>ME</option>
-                                <option value='MD'>MD</option>
-                                <option value='MA'>MA</option>
-                                <option value='MI'>MI</option>
-                                <option value='MN'>MN</option>
-                                <option value='MS'>MS</option>
-                                <option value='MO'>MO</option>
-                                <option value='MT'>MT</option>
-                                <option value='NE'>NE</option>
-                                <option value='NV'>NV</option>
-                                <option value='NH'>NH</option>
-                                <option value='NJ'>NJ</option>
-                                <option value='NM'>NM</option>
-                                <option value='NY'>NY</option>
-                                <option value='NC'>NC</option>
-                                <option value='ND'>ND</option>
-                                <option value='OH'>OH</option>
-                                <option value='OK'>OK</option>
-                                <option value='OR'>OR</option>
-                                <option value='PA'>PA</option>
-                                <option value='RI'>RI</option>
-                                <option value='SC'>SC</option>
-                                <option value='SD'>SD</option>
-                                <option value='TN'>TN</option>
-                                <option value='TX'>TX</option>
-                                <option value='UT'>UT</option>
-                                <option value='VT'>VT</option>
-                                <option value='VA'>VA</option>
-                                <option value='WA'>WA</option>
-                                <option value='WV'>WV</option>
-                                <option value='WI'>WI</option>
-                                <option value='WY'>WY</option>
-                            </select>
+                                {states.map(state => {
+                                    return (
+                                        <MenuItem value={state}>
+                                            {state}
+                                        </MenuItem>
+                                    );
+                                })}
+                            </TextField>
                         </Grid>
 
-                        <Grid>
-                            <label htmlFor='zip'>Zip Code:</label>
-                            <TextField type='text' id='zip' required />
+                        <Grid xs='auto' sx={{ margin: 2 }}>
+                            <TextField
+                                label='Zip Code:'
+                                type='text'
+                                id='zip'
+                                required
+                            />
                         </Grid>
-                    </Paper>
+                    </Grid>
 
-                    <button className='primary' type='submit'>
+                    <Button className='primary' type='submit'>
                         Submit
-                    </button>
-                    <button type='reset'>Clear</button>
-                </Box>
+                    </Button>
+                    <Button type='reset'>Clear</Button>
+                </Grid>
             </Grid>
             <Grid className='formItem '>
-                <h3>Event Preview</h3>
+                <Typography variant='h3' sx={{ fontSize: '40px' }}>
+                    Event Preview
+                </Typography>
                 <section className='preview'>
                     <a href={website}>
                         <h4>{title}</h4>
@@ -274,7 +321,7 @@ function EventForm(props) {
                     </p>
                 </section>
             </Grid>
-        </section>
+        </PageContainer>
     );
 }
 
