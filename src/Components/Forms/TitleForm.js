@@ -1,18 +1,18 @@
-import React from 'react'
+import React from 'react';
 
 function TitleForm(props) {
-
-  return (
-    <form className='signup-form' onSubmit={props.handleEventSearch} >
-      <div className='center'>
-        <label htmlFor="search_term">Search Term: </label>
-        <input
-          placeholder='championship'
-          type="text"
-          name='search_term'
-          id='search_term' />
-      </div>
-      {/* <div className="">
+    return (
+        <form className='signup-form' onSubmit={props.handleEventSearch}>
+            <div className='center'>
+                <label htmlFor='search_term'>Search Term: </label>
+                <input
+                    placeholder='championship'
+                    type='text'
+                    name='search_term'
+                    id='search_term'
+                />
+            </div>
+            {/* <div className="">
               <label htmlFor='event_type'> Search for events by type: </label>
               <select id="event_type">
                 <option value='all'>All</option>
@@ -23,11 +23,12 @@ function TitleForm(props) {
               </select>
             </div> */}
 
-      <button className='primary' type='submit'>Search</button>
-      <button type='reset'>Clear From</button>
-
-    </form>
-  )
+            <button className='primary' type='submit'>
+                Search
+            </button>
+            <button type='reset'>Clear From</button>
+        </form>
+    );
 }
 
-export default TitleForm
+export default TitleForm;

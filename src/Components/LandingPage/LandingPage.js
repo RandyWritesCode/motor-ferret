@@ -1,26 +1,39 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button, Card, Grid, Typography } from '@mui/material';
+import Carousel from '../Hero/Carousel';
 
 function LandingPage() {
-  return (
-    <>
-      <section>
-        <h3>Search for Events</h3>
-        <p>Use the <Link to='/events-search'>
-          search </Link>
-         feature to find motorsports events by title or state.
-			</p>
-      </section>
-      <section>
-        <h3>Be an Adminstrator</h3>
-        <p>View <Link to='/users'>user accounts </Link> and toggle user access!</p>
-      </section>
-      <section>
-        <h3>Create an Event</h3>
-        <p>Hosting an event? <Link to="/event-form">Add</Link> it to share it with the community.</p>
-      </section>
-    </>
-  )
+    return (
+        <>
+            <Carousel />
+            <Grid container justifyContent='center' sx={{ margin: 2 }}>
+                <Grid item sx={{ margin: 1 }}>
+                    <Button variant='contained' component={Link} to='/events'>
+                        Upcoming Events
+                    </Button>
+                </Grid>
+                <Grid item sx={{ margin: 1 }}>
+                    <Button
+                        variant='outlined'
+                        component={Link}
+                        to='/events-search'
+                    >
+                        Search Event
+                    </Button>
+                </Grid>
+                <Grid item sx={{ margin: 1 }}>
+                    <Button
+                        variant='outlined'
+                        component={Link}
+                        to='/event-form'
+                    >
+                        Create Event
+                    </Button>
+                </Grid>
+            </Grid>
+        </>
+    );
 }
 
-export default LandingPage
+export default LandingPage;
