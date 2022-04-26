@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
-import { Button, Grid } from '@mui/material';
+import { Button, Grid, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import TitleForm from '../Forms/TitleForm.js';
 import LocationForm from '../Forms/LocationForm.js';
 
 function SearchEventsForm(props) {
-    const [form, setForm] = useState('title');
+    const [formType, setFormType] = useState('title');
 
-    function handleTitleForm() {
-        setForm(form => (form = 'title'));
-    }
-
-    function handleLocationForm() {
-        setForm(form => (form = 'location'));
+    function handleFormChange(e) {
+        setFormType(e.target.value);
     }
 
     function displayForm() {
-        if (form === 'title') {
+        if (formType === 'title') {
             return <TitleForm handleEventSearch={props.handleEventSearch} />;
-        } else if (form === 'location') {
+        } else if (formType === 'state') {
             return (
                 <LocationForm
                     events={props.events}
@@ -31,25 +27,34 @@ function SearchEventsForm(props) {
 
     return (
         <Grid container>
-            <Grid xs={3} sx={{ marginLeft: 1 }}>
+            <ToggleButtonGroup
+                color='primary'
+                value={formType}
+                exclusive
+                onChange={handleFormChange}
+            >
+                <ToggleButton value='title'>Event Title</ToggleButton>
+                <ToggleButton value='state'>State</ToggleButton>
+            </ToggleButtonGroup>
+            {/* <Grid item xs='auto' sx={{ margin: 2 }}>
                 <Button
                     variant='outlined'
                     className='searchOption'
-                    onClick={() => handleTitleForm()}
+                    onClick={() => handleFormChange('title')}
                 >
                     Title
                 </Button>
             </Grid>
 
-            <Grid xs={3} sx={{ marginLeft: 1 }}>
+            <Grid item xs='auto' sx={{ margin: 2 }}>
                 <Button
                     variant='outlined'
                     className='searchOption'
-                    onClick={() => handleLocationForm()}
+                    onClick={e => handleFormChange('state')}
                 >
                     State
                 </Button>
-            </Grid>
+            </Grid> */}
 
             {displayForm()}
         </Grid>

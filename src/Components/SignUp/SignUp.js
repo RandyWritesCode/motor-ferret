@@ -1,12 +1,23 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import {
+    Button,
+    FormControlLabel,
+    FormLabel,
+    Grid,
+    Radio,
+    RadioGroup,
+    TextField,
+    Typography,
+} from '@mui/material';
+import { PageContainer } from '../../shared/index';
 
 function SignUp(props) {
     return (
-        <div>
+        <PageContainer>
             <section>
                 <header>
-                    <h2>Sign Up</h2>
+                    <Typography variant='h3'>Sign Up</Typography>
                 </header>
                 <p>
                     Password should have at least one uppercase and one
@@ -15,76 +26,79 @@ function SignUp(props) {
                 </p>
 
                 <p>Aa1!Bb2@</p>
-                <form
+                <Grid
+                    component='form'
                     className='signup-form'
                     onSubmit={e => {
                         props.handleSignUpSubmit(e);
                         props.history.push('/login');
                     }}
                 >
-                    <div>
-                        <label htmlFor='fullname'>Full name:</label>
-                        <input
+                    <Grid item sx={{ margin: 1 }}>
+                        <TextField
+                            label='Full name'
                             type='text'
                             name='fullname'
                             id='fullname'
                             placeholder='Randy Douglas'
                             required
                         />
-                    </div>
-                    <div>
-                        <label htmlFor='username'>Username:</label>
-                        <input
+                    </Grid>
+                    <Grid item sx={{ margin: 1 }}>
+                        <TextField
+                            label='Username'
                             type='text'
                             name='username'
                             id='username-sign-up'
                             placeholder='MotorFerretUser1'
                             required
                         />
-                    </div>
-                    <div>
-                        <label htmlFor='password'>Password</label>
-                        <input
+                    </Grid>
+                    <Grid item sx={{ margin: 1 }}>
+                        <TextField
+                            label='Password'
                             type='password'
                             name='password'
                             id='password-sign-up'
                             required
                         />
-                    </div>
-                    <div>
-                        <label htmlFor='confirm-password'>
-                            Confirm Password
-                        </label>
-                        <input
+                    </Grid>
+                    <Grid item sx={{ margin: 1 }}>
+                        <TextField
+                            label='Confirm Password'
                             type='password'
                             name='confirm-password'
                             id='confirm-password'
                             required
                         />
-                    </div>
-                    <div>
-                        <span>Are you a Motor Ferret Administrator?: </span>
-                        <input
-                            type='radio'
-                            id='admin'
-                            name='admin'
-                            value='Yes'
-                        />
-                        <label htmlFor='admin'>Yes</label>
-                        <input
-                            type='radio'
-                            id='not_admin'
-                            name='admin'
-                            value='No'
-                            defaultChecked
-                        />
-                        <label htmlFor='not_admin'>No</label>
-                    </div>
-                    <button type='submit'>Sign Up</button>
-                    <button type='reset'>Clear</button>
-                </form>
+                    </Grid>
+                    <Grid item sx={{ margin: 1 }}>
+                        <FormLabel>
+                            Are you a Motor Ferret Administrator?:{' '}
+                        </FormLabel>
+
+                        <RadioGroup
+                            aria-labelledby='admin-radio-buttons-group-label'
+                            defaultValue='no'
+                            name='radio-buttons-group'
+                        >
+                            <FormControlLabel
+                                value='yes'
+                                control={<Radio />}
+                                label='Yes'
+                            />
+                            <FormControlLabel
+                                value='no'
+                                control={<Radio />}
+                                label='No'
+                            />
+                        </RadioGroup>
+                    </Grid>
+                    <Button type='submit'>Sign Up</Button>
+                    <Button type='reset'>Clear</Button>
+                </Grid>
             </section>
-        </div>
+        </PageContainer>
     );
 }
 

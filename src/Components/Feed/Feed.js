@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card, Grid } from '@mui/material';
 import { PageContainer, ItemContainer } from '../../shared/index';
 
-function Feed(props) {
+function Feed({ events }) {
+    useEffect(() => {}, [events]);
+
     let days = [
         'Sunday',
         'Monday',
@@ -34,8 +36,8 @@ function Feed(props) {
                 <h3>Upcoming Events</h3>
             </section>
             <Grid container spacing={1}>
-                {props.events
-                    ? props.events.map((event, idx) => {
+                {events
+                    ? events.map((event, idx) => {
                           let formattedEventType = event.event_type
                               .replace('_', ' ')
                               .toUpperCase();

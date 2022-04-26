@@ -31,7 +31,6 @@ class App extends React.Component {
             user: {},
         };
     }
-
     componentDidMount() {
         let userUrl = `${config.API_ENDPOINT}/users`;
         let getAllUsers = {
@@ -111,6 +110,7 @@ class App extends React.Component {
 
     handleEventSearchByLocation = event => {
         event.preventDefault();
+        console.log(100, 'hello', event.target.value);
         let searchLocation = event.target.state.value;
 
         let searchEventsUrl = `${config.API_ENDPOINT}/events`;
@@ -241,7 +241,7 @@ class App extends React.Component {
                         admin: TokenService.getUserAuth(),
                         loggedIn: true,
                     },
-                    () => history.push('/events')
+                    () => history.push('/')
                 );
             })
 
@@ -294,13 +294,17 @@ class App extends React.Component {
             <Router>
                 <Nav
                     admin={this.state.admin}
-                    loggedIn={this.state.loggedIn}
+                    // loggedIn={this.state.loggedIn}
                     handleLogout={this.handleLogout}
+                    handleEventSearch={this.handleEventSearch}
                 />
                 <Header />
                 <Switch>
                     <Route exact path='/'>
-                        <LandingPage />
+                        <LandingPage
+                            handleLogin={this.handleLogin}
+                            loggedIn={this.state.loggedIn}
+                        />
                     </Route>
                     <PrivateRoute
                         path='/event-form'

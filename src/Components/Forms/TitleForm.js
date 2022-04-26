@@ -1,18 +1,25 @@
+import { TextField, Grid, Button } from '@mui/material';
 import React from 'react';
+import { ItemContainer } from '../../shared/index';
 
 function TitleForm(props) {
     return (
-        <form className='signup-form' onSubmit={props.handleEventSearch}>
-            <div className='center'>
-                <label htmlFor='search_term'>Search Term: </label>
-                <input
-                    placeholder='championship'
-                    type='text'
-                    name='search_term'
-                    id='search_term'
-                />
-            </div>
-            {/* <div className="">
+        <ItemContainer>
+            <Grid
+                type='form'
+                className='signup-form'
+                onSubmit={props.handleEventSearch}
+            >
+                <Grid className='center'>
+                    <TextField
+                        labe='Search Term'
+                        placeholder='championship'
+                        type='text'
+                        name='search_term'
+                        id='search_term'
+                    />
+                </Grid>
+                {/* <div className="">
               <label htmlFor='event_type'> Search for events by type: </label>
               <select id="event_type">
                 <option value='all'>All</option>
@@ -23,11 +30,12 @@ function TitleForm(props) {
               </select>
             </div> */}
 
-            <button className='primary' type='submit'>
-                Search
-            </button>
-            <button type='reset'>Clear From</button>
-        </form>
+                <Button className='primary' type='submit'>
+                    Search
+                </Button>
+                <Button type='reset'>Clear</Button>
+            </Grid>
+        </ItemContainer>
     );
 }
 
